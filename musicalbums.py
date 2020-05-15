@@ -36,3 +36,4 @@ class MusicAlbums:
                 length INTEGER,
                 FOREIGN KEY (albumName, companyName) REFERENCES Albums(albumName, companyName)
             );""")
+        self.db.commit()
