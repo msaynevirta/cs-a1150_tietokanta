@@ -36,5 +36,9 @@ class MusicAlbums:
                 length INTEGER,
                 FOREIGN KEY (albumName, companyName) REFERENCES Albums(albumName, companyName)
             );""")
+<<<<<<< HEAD
         
         self.cursor.execute("""INSERT INTO Artists VALUES('Ed Sheeran', 'M', 1991);""")
+=======
+        self.db.commit()
+>>>>>>> aa88953fd325ea0e825565ada617569bfd8baefe
