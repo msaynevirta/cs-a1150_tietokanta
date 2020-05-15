@@ -1,6 +1,7 @@
-from sqlitedatabase import SqliteDatabase
+from musicalbums import MusicAlbums
 
 def main():
-    musicalbums = SqliteDatabase("musicalbums.db")
+    musicalbums = MusicAlbums("musicalbums.db")
+    musicalbums.create_db()
 
 main()
