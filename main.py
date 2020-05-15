@@ -13,4 +13,7 @@ def main():
         csv_reader = csv.reader(csv_file)
         for row in csv_reader:
             musicalbums.new_album(row[0], row[1], row[2], row[3], row[4])
+
+    inp = input("Insert company name: ")
+    musicalalbums.albums_by_company(inp)
 main()
