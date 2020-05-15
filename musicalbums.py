@@ -35,10 +35,10 @@ class MusicAlbums:
                 lyricist TEXT,
                 length INTEGER,
                 FOREIGN KEY (albumName, companyName) REFERENCES Albums(albumName, companyName)
-            );""")
-<<<<<<< HEAD
-        
-        self.cursor.execute("""INSERT INTO Artists VALUES('Ed Sheeran', 'M', 1991);""")
-=======
-        self.db.commit()
->>>>>>> aa88953fd325ea0e825565ada617569bfd8baefe
+            );
+            INSERT INTO Artists VALUES('Ed Sheeran', 'M', 1991);
+            """)
+
+    def get_year_of_birth(self):
+        self.cursor("""SELECT born FROM Artists WHERE artistName = 'Ed Sheeran';""")
+        return
