@@ -39,6 +39,7 @@ class MusicAlbums:
             INSERT INTO Artists VALUES('Ed Sheeran', 'M', 1991);
             """)
 
+        self.db.commit()
+
     def get_year_of_birth(self):
-        self.cursor("""SELECT born FROM Artists WHERE artistName = 'Ed Sheeran';""")
-        return
+        return self.cursor("""SELECT born FROM Artists WHERE artistName = 'Ed Sheeran';""")
