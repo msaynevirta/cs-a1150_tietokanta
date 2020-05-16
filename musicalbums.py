@@ -55,7 +55,7 @@ class MusicAlbums:
         return rows[0][0]
 
     def get_albums_by_company(self, input):
-        self.cursor.execute("""SELECT albumName, year, genre FROM Albums WHERE companyName =? """, (input))
+        self.cursor.execute("""SELECT albumName, year, genre FROM Albums WHERE companyName =? """, (input,))
         rows = self.cursor.fetchall()
         return rows
 
