@@ -1,11 +1,16 @@
 import csv
+import os.path
+from os import path
 
 from musicalbums import MusicAlbums
 
 def main():
-    musicalbums = MusicAlbums("musicalbums.db")
-    musicalbums.create_db()
-    print(musicalbums.get_year_of_birth())
+    db_path = "musicalbums.db"
+    musicalbums = MusicAlbums(db_path)
+    if not path.exists(db_path):
+        musicalbums.create_db()
+
+    print("Ed Sheeran's birthyear:", musicalbums.get_year_of_birth())
 
     filepath = input("Please enter file path for a csv file of new albums: ")
 
