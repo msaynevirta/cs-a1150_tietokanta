@@ -1,6 +1,4 @@
 import csv
-import os.path
-from os import path
 
 from musicalbums import MusicAlbums
 
@@ -9,24 +7,19 @@ def main():
     musicalbums = MusicAlbums(db_path)
 
     # ----------- INITIALISE DATABASE -----------
-    if not path.exists(db_path):
-        musicalbums.create_db()
+    musicalbums.create_db()
 
     # ----------- PRINT BIRTHYEAR OF A SINGLE ARTIST -----------
     print("Ed Sheeran's birthyear:", musicalbums.get_year_of_birth())
 
-    # ----------- LOAD AND INSERT COMPANIES -----------
-    filepath = input("Please enter file path for a csv file of new albums: ")
-
-    with(open(filepath, 'r')) as csv_file:
+    # ----------- LOAD AND INSERT COMPANIES FROM EXAMPLE FILE -----------
+    with(open("example_companies.csv", 'r')) as csv_file:
         csv_reader = csv.reader(csv_file)
         for row in csv_reader:
-            musicalbums.new_album(row[0], row[1], row[2], row[3], row[4])
+            musicalbums.new_company(row[0], row[1], row[2])
 
-    # ----------- LOAD AND INSERT ALBUMS -----------
-    filepath = input("Please enter file path for a csv file of new albums: ")
-
-    with(open(filepath, 'r')) as csv_file:
+    # ----------- LOAD AND INSERT ALBUMS FROM EXAMPLE FILE -----------
+    with(open("example_albums.csv", 'r')) as csv_file:
         csv_reader = csv.reader(csv_file)
         for row in csv_reader:
             musicalbums.new_album(row[0], row[1], row[2], row[3], row[4])

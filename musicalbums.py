@@ -55,14 +55,20 @@ class MusicAlbums:
         return rows[0][0]
 
     def get_albums_by_company(self, input):
-        self.cursor.execute("""SELECT albumName, year, genre FROM Albums WHERE companyName = ? """, (input))
+        self.cursor.execute("""SELECT albumName, year, genre FROM Albums WHERE companyName =? """, (input))
         rows = self.cursor.fetchall()
         return rows
+
+    def new_company(self, company_name, country, webpage):
+        insertion = "INSERT INTO Companies VALUES(?, ?, ?)"
+        self.cursor.execute(insertion, (company_name, country, webpage))
+        self.db.commit()
 
     def new_album(self, album_name, company_name, year, length, genre):
         insertion = "INSERT INTO Albums VALUES(?, ?, ?, ?, ?)"
         self.cursor.execute(insertion, (album_name, company_name, year, length, genre))
         self.db.commit()
+
 
     def close_db(self):
         self.db.close()
