@@ -25,7 +25,7 @@ def main():
             musicalbums.new_album(row[0], row[1], row[2], row[3], row[4])
 
     # ----------- LOAD ALBUMS BY COMPANY -----------
-    company_name = input("Insert company name: ")
+    company_name = input("Enter company name: ")
 
     for row in musicalbums.get_albums_by_company(company_name):
         print(row)
