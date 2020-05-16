@@ -54,11 +54,10 @@ class MusicAlbums:
         rows = self.cursor.fetchall()
         return rows[0][0]
 
-    def albums_by_company(self, input):
+    def get_albums_by_company(self, input):
         self.cursor.execute("""SELECT albumName, year, genre FROM Albums WHERE companyName = ? """, (input))
         rows = self.cursor.fetchall()
-        for row in rows:
-            print(row)
+        return rows
 
     def new_album(self, album_name, company_name, year, length, genre):
         insertion = "INSERT INTO Albums VALUES(?, ?, ?, ?, ?)"
